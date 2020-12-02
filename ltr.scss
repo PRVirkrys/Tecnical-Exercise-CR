@@ -1,0 +1,467 @@
+/* ===============================
+    GENERIC STYLES
+        Contents 
+-----------------------------------
+    1.0 COLORS
+    2.0 SPACING
+    3.0 TYPOGRAPHY
+    4.0 BUTTONS
+    5.0 INPUT
+    6.0 BODY - WRAPPER
+=================================== */
+
+/*=================================
+    1.0 COLORS
+=================================== */
+$light-blue: #199fd9;
+$dark-blue: #283A97;
+$orange: #f08429;
+$gray-light: #f2f2f2;
+$gray-dark: #76645d;
+$white-default: #ffffff;
+
+/*=================================
+    2.0 SPACING
+=================================== */
+$unit-base: 4px;
+$space-xs: $unit-base; // 4px
+$space-s: $unit-base * 2; // 8px
+$space-m: $unit-base * 3; // 12px
+$space-l: $unit-base * 4; // 16px
+$space-xl: $unit-base * 6; // 24px
+
+/*=================================
+    3.0 TYPOGRAPHY
+=================================== */
+$font-size-base: 16px;
+$font-xxs: 11px;
+$font-xs: 12px;
+$font-s: 14px;
+$font-m: $font-size-base;
+$font-l: 18px;
+
+/* Weights */
+
+.light-weight {
+    font-weight: 300;
+}
+
+.medium-weight {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.link-icon {
+    font-weight: 600;
+    font-size: $font-xs;
+    color: $orange;
+    display: inline-flex;
+
+    img {
+        width: $font-s;
+        height: $font-s;
+        padding-left: $space-xs;
+    }
+}
+
+.clasic-link {
+    font-size: $font-xs;
+    color: $dark-blue;
+}
+
+/*=================================
+    4.0 BUTTONS
+=================================== */
+$text-color-button: $white-default;
+$arrow-size: 5px;
+
+.btn {
+    display: flex;
+    align-items: center;
+    padding: $space-s $space-l;
+    font-size: 0.8em;
+    font-weight: 600;
+    background-color: $orange;
+    border: none;
+    color: $text-color-button;
+
+    &--arrow-right {
+        &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border-top: $arrow-size solid transparent;
+            border-bottom: $arrow-size solid transparent;
+            border-left: $arrow-size solid $text-color-button;
+            margin-left: $space-s;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+/*=================================
+    5.0 INPUT
+=================================== */
+input {
+    border: none;
+    padding: $space-s;
+    margin-right: $space-s;
+    width: 100%;
+    font-size: $font-xxs;
+
+    &::placeholder {
+        opacity: .8;
+    }
+}
+
+/*=================================
+    6.0 BODY - WRAPPER
+=================================== */
+$min-width: 576px;
+$max-width: 952px;
+
+body {
+    max-width: $max-width;
+    min-width: $min-width;
+    font-family: 'Roboto', sans-serif;
+    font-size: $font-size-base;
+    margin: 0 auto;
+    background-color: $gray-light;
+    color: $gray-dark;
+    padding-bottom: $space-xl;
+}
+
+.wrapper {
+    padding: $space-l;
+    background-color: $white-default;
+}
+
+/* ===============================
+    LTR STYLE
+        Contents 
+-----------------------------------
+    1.0 NAV
+    2.0 MAIN CONTAINER
+    3.0 LEFT CONTAINER
+        3.1 Brand Row
+        3.2 Search Row
+        3.3 Menu left container
+        3.4 Breadcrumbs
+    4.0 RIGHT CONTAINER
+        4.1 Icon circle style
+        4.2 User info block
+        4.3 Extra info block
+    5.0 FOOTER
+=================================== */
+
+/*=================================
+    1.0 NAV
+=================================== */
+.nav {
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    font-size: $font-s;
+    justify-content: flex-end;
+
+    &__item {
+        padding: $space-l;
+        margin: auto $space-s;
+
+        &:hover {
+            background-color: $gray-light;
+            cursor: pointer;
+        }
+
+        &__link {
+            color: $gray-dark;
+        }
+    }
+
+    &__button {
+        margin-left: $space-xl;
+    }
+
+    @media (max-width: $max-width) {
+        &__item {
+            padding-left: $space-s;
+            padding-right: $space-s;
+            margin: auto $space-xs;
+        }
+    
+        &__button {
+            margin-left: $space-l;
+        }
+    }
+}
+
+/*=================================
+    2.0 MAIN CONTAINER
+=================================== */
+.main-content {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: row;
+
+    &__left {
+        width: 70%;
+        margin-right: $space-m;
+        min-width: 500px;
+    }
+
+    &__right {
+        width: 30%;
+        min-width: 280px;
+    }
+
+    @media (max-width: $max-width) {
+        flex-direction: column;
+        &__left, &__right {
+            width: 100%;
+            margin: 0;
+        }
+    }
+}
+
+/*=================================
+    3.0 LEFT CONTENT
+=================================== */
+/* --- 3.1 Brand Row --- */
+.brand-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: $space-s $space-l;
+    background-color: $dark-blue;
+    margin-bottom: $space-xs;
+}
+
+/* --- 3.2 Search Row --- */
+.search-row {
+    width: 100%;
+    display: inline-flex;
+
+    &__container {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: $space-s $space-l;
+        background-color: $gray-light;
+    }
+
+    &__brand {
+        flex: 3;
+        margin-right: $space-xs;
+    }
+
+    &__search-box {
+        flex: 4;
+    }
+}
+
+/* --- 3.3 Menu left container --- */
+.menu {
+    display: inline-flex;
+    width: 100%;
+    margin-top: $space-m;
+    font-size: $font-xxs;
+
+    &__item {
+        flex: 7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $light-blue;
+        margin-right: $space-xs;
+
+        &:hover {
+            background-color: $dark-blue;
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+
+    &__link {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0.75em $space-s;
+        color: $white-default;
+    }
+
+    &__img {
+        width: 25px;
+        height: 25px;
+        margin-bottom: $space-s;
+    }
+}
+
+/* --- 3.4 Breadcrumbs --- */
+.bread-crumbs {
+    display: inline-flex;
+    font-size: $font-s;
+    padding: $space-l;
+
+    &--active {
+        color: $orange;
+        padding-left: $space-xs;
+    }
+}
+
+hr {
+    border: 1px solid $gray-light;
+    width: 100%;
+}
+
+/*=================================
+    4.0 RIGHT CONTENT
+=================================== */
+/* --- 4.1 Icon circle style --- */
+$circle-icon-size: 25px;
+
+.icon-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $circle-icon-size;
+    height: $circle-icon-size;
+    background-color: $white-default;
+    border-radius: 50%;
+
+    &.cog-icon {
+        img {
+            width: $circle-icon-size - 8px;
+        }
+    }
+
+    &.envelope-icon {
+        img {
+            width: $circle-icon-size - 10px;
+        }
+    }
+}
+
+/* --- 4.2 User info block --- */
+.u-info {
+    padding: $space-m;
+    color: $white-default;
+    background-color: $light-blue;
+
+    &__u-name {
+        font-size: $font-l;
+        margin-bottom: $space-xs;
+    }
+
+    &__login {
+        display: flex;
+        font-size: $font-xs;
+        font-weight: 600;
+
+        span {
+            padding-left: $space-xs;
+        }
+    }
+
+    &__options {
+        display: inline-flex;
+        margin-top: $space-s;
+
+        &__link {
+            color: $white-default;
+            font-size: $font-xs;
+
+            .light-weight {
+                flex-wrap: wrap;
+                margin-left: $circle-icon-size;
+                padding-left: $space-xs;
+            }
+
+            &:first-of-type {
+                margin-right: $space-s;
+            }
+
+            &__container {
+                display: inline-flex;
+                align-items: center;
+
+                .icon-circle {
+                    margin-right: $space-xs;
+                }
+            }
+        }
+    }
+}
+
+/* --- 4.3 Extra info block --- */
+.extra-info {
+    background-color: $gray-light;
+    padding: $space-m;
+    margin-top: $space-m;
+
+    &__title {
+        color: $dark-blue;
+    }
+
+    &__info-container {
+        margin-top: $space-m;
+        padding: $space-m;
+        background-color: $white-default;
+        display: inline-flex;
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: space-between;
+
+        p {
+            margin-right: $space-m;
+            font-size: $font-xs;
+        }
+    }
+}
+
+/*=================================
+    3.0 FOOTER
+=================================== */
+.footer {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    .nav {
+        font-size: $font-xs;
+        justify-content: flex-start;
+
+        &__item {
+            &:hover {
+                background-color: transparent;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__section--right {
+        text-align: right;
+        padding-top: $space-l;
+
+        .copyright {
+            margin-top: $space-s;
+            font-size: $font-xs;
+        }
+    }
+
+    @media (max-width: $max-width) {
+        flex-direction: column;
+        align-items: center;
+        &__section--right {
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,199 @@
+@import "ltr.scss";
+
+/* ===============================
+    RTL STYLE
+        Contents 
+-----------------------------------
+    1.0 BUTTONS
+    2.0 INPUT
+    3.0 LINK
+    4.0 NAV
+    5.0 MAIN CONTAINER
+        5.1 Brand Row
+        5.2 Search Row
+        5.3 Menu left container
+        5.4 Breadcrumbs
+    6.0 RIGHT CONTAINER
+        6.1 Icon circle style
+        6.2 User info block
+        6.3 Extra info block
+    7.0 FOOTER
+=================================== */
+
+/*=================================
+    1.0 BUTTONS
+=================================== */
+.btn {
+    flex-direction: row-reverse;
+    &--arrow-right {
+        &::after {
+           transform: rotate(180deg);
+           margin-left: 0;
+           margin-right: $space-s;
+        }
+    }
+}
+
+/*=================================
+    2.0 INPUT
+=================================== */
+input {
+    text-align: right;
+}
+
+/*=================================
+    3.0 LINK
+=================================== */
+.link-icon {
+    img {
+        padding-left: 0;
+        padding-right: $space-xs;
+    }
+}
+
+/*=================================
+    4.0 NAV
+=================================== */
+.nav {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
+
+    &__button {
+        margin-left: 0;
+    }
+
+    @media (max-width: $max-width) {
+        &__item {
+            padding-left: $space-s;
+            padding-right: $space-s;
+            margin: auto $space-xs;
+        }
+    
+        &__button {
+            margin-left: 0;
+            margin-right: $space-l;
+        }
+    }
+}
+
+/*=================================
+    5.0 MAIN CONTAINER
+=================================== */
+.main-content {
+    flex-direction: row-reverse;
+
+    &__left {
+        margin-right: 0;
+        margin-left: $space-m;
+    }
+
+    @media (max-width: $max-width) {
+        flex-direction: column;
+   
+        &__left, &__right {
+            width: 100%;
+            margin: 0;
+        }
+    }
+}
+
+/* --- 5.1 Brand Row --- */
+.brand-row {
+    flex-direction: row-reverse;
+}
+
+/* --- 5.2 Search Row --- */
+.search-row {
+    flex-direction: row-reverse;
+    &__brand {
+        margin-right: 0;
+        margin-left: $space-xs;
+    }
+}
+
+/* --- 5.3 Menu left container --- */
+.menu {
+    flex-direction: row-reverse;
+    &__item {
+        margin-right: 0;
+        margin-left: $space-xs;
+    }
+}
+
+/* --- 5.4 Breadcrumbs --- */
+.bread-crumbs {
+    direction: rtl;
+    float: right;
+    
+    &--active {
+        padding-left: 0;
+        padding-right: $space-xs;
+    }
+}
+
+/*=================================
+    6.0 RIGHT CONTENT
+=================================== */
+/* --- 6.1 Icon circle style --- */
+.icon-circle {
+    margin-right: 0;
+    margin-left: $space-xs;
+}
+
+/* --- 6.2 User info block --- */
+.u-info {
+    direction: rtl;
+
+    &__login {
+        direction: rtl;
+        span {
+            padding-right: $space-xs;
+        }
+    }
+
+    &__options {
+        &__link {
+            .light-weight {
+                margin-left: 0;
+                padding-left: 0;
+                margin-right: $circle-icon-size;
+                padding-right: $space-xs;
+            }
+
+            &:first-of-type {
+                margin-right: 0;
+                margin-left: $space-s;
+            }
+
+        }
+    }
+}
+
+/* --- 6.3 Extra info block --- */
+.extra-info {
+    direction: rtl;
+    &__info-container {
+        p {
+            margin-right: 0;
+            margin-left: $space-m;
+        }
+    }
+}
+
+/*=================================
+    7.0 FOOTER
+=================================== */
+.footer {
+    flex-direction: row-reverse;
+    &__section--right {
+        text-align: left;
+    }
+
+    @media (max-width: $max-width) {
+        flex-direction: column;
+        align-items: center;
+        &__section--right {
+            text-align: center;
+        }
+    }
+}
